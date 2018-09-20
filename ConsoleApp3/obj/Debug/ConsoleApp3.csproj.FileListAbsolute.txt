@@ -5,3 +5,10 @@ C:\Users\le.viet.hung\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.c
 C:\Users\le.viet.hung\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.exe
 C:\Users\le.viet.hung\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.pdb
 C:\Users\le.viet.hung\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.csprojAssemblyReference.cache
+D:\source\repos\VerifyApp\ConsoleApp3\bin\Debug\ConsoleApp3.exe.config
+D:\source\repos\VerifyApp\ConsoleApp3\bin\Debug\ConsoleApp3.exe
+D:\source\repos\VerifyApp\ConsoleApp3\bin\Debug\ConsoleApp3.pdb
+D:\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.csprojAssemblyReference.cache
+D:\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.csproj.CoreCompileInputs.cache
+D:\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.exe
+D:\source\repos\VerifyApp\ConsoleApp3\obj\Debug\ConsoleApp3.pdb

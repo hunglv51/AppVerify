@@ -1,12 +1,15 @@
-﻿using Microsoft.Win32;
+﻿using ConsoleApp2;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleApp2
+namespace VerifyApp
 {
-    class Program
+    class ManageApp
     {
-
         static void GetNameApp(HashSet<string> listApp, RegistryHive hive, RegistryView view, string registryKey)
         {
             using (RegistryKey key = RegistryKey.OpenBaseKey(hive, view).OpenSubKey(registryKey))
@@ -26,7 +29,7 @@ namespace ConsoleApp2
 
         static void VerifyApps(List<string> validApps, List<string> invalidApps, HashSet<string> listApp, string[] allowedApps)
         {
-            foreach(var appName in listApp)
+            foreach (var appName in listApp)
             {
                 if (IsAllowedApp(appName, allowedApps))
                     validApps.Add(appName);
@@ -38,7 +41,7 @@ namespace ConsoleApp2
 
         static bool IsAllowedApp(string appName, string[] allowedApps)
         {
-            foreach(var keyword in AllowedAppName.AlwaysPassKeyWord)
+            foreach (var keyword in AllowedAppName.AlwaysPassKeyWord)
             {
                 if (appName.ToLower().Contains(keyword.ToLower()))
                     return true;
@@ -72,22 +75,6 @@ namespace ConsoleApp2
                 GetNameApp(listApp, RegistryHive.LocalMachine, RegistryView.Registry32, registryKey64Bit);
             }
             return listApp;
-        }
-        static void Main(string[] args)
-        {
-
-            HashSet<string> listApp = GetInstalledApps();
-            List<string> validApp = new List<string>();
-            List<string> inValidApp = new List<string>();
-            VerifyApps(validApp, inValidApp, listApp, AllowedAppName.AllAllowedApps);
-            Console.WriteLine("Vallid App:" + validApp.Count);
-            foreach (var name in validApp)
-                Console.WriteLine(name);
-            Console.WriteLine();
-            Console.WriteLine("Invalid App:" + inValidApp.Count);
-            foreach (var name in inValidApp)
-                Console.WriteLine(name);
-            Console.ReadKey();
         }
     }
 }

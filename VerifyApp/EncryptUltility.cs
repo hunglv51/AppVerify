@@ -1,33 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Management;
-using System.Security.Cryptography;
-using System.IO;
-using System.Reflection;
 
-namespace ConsoleApp3
+namespace VerifyApp
 {
-    class Program
+    class EncryptUltility
     {
         const string key = "K3y v3r1fy @pp f0r Kl00n";
-        static void Main(string[] args)
-        {
-            //string testString = "Hello World 123 @";
-            //string encode = EncodeData(testString);
-            //string decode = DecodeData(encode);
-            //Console.WriteLine(testString);
-            //Console.WriteLine(encode);
-            //Console.WriteLine(decode);
-            //Console.WriteLine(File.Exists(Assembly.GetEntryAssembly().Location));
-            Console.WriteLine(Assembly.GetEntryAssembly().Location);
-            Console.ReadKey();
-        }
-        
-
         static string EncodeData(string data)
         {
             using (var md5 = new MD5CryptoServiceProvider())
@@ -47,7 +29,7 @@ namespace ConsoleApp3
 
                 }
             }
-                
+
         }
 
         static string DecodeData(string encryptedData)
