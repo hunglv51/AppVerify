@@ -8,6 +8,7 @@ using System.Management;
 using System.Security.Cryptography;
 using System.IO;
 using System.Reflection;
+using System.Security.Principal;
 
 namespace ConsoleApp3
 {
@@ -22,8 +23,25 @@ namespace ConsoleApp3
             //Console.WriteLine(testString);
             //Console.WriteLine(encode);
             //Console.WriteLine(decode);
-            //Console.WriteLine(File.Exists(Assembly.GetEntryAssembly().Location));
-            Console.WriteLine(Assembly.GetEntryAssembly().Location);
+
+            FileInfo file = new FileInfo("le.viet.hung_verify_result.txt");
+            if (file.Exists)
+            {
+                using (var reader = file.OpenText())
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        Console.WriteLine(DecodeData(reader.ReadLine()));
+                    }
+                }
+            }
+            else
+                Console.WriteLine("File not exist");
+            //string[] files = Directory.GetFiles(@"C:\Users\le.viet.hung\Desktop", "*_verify_result.txt", SearchOption.TopDirectoryOnly);
+            //foreach(var name in files)
+            //{
+            //    Console.WriteLine(name);
+            //}
             Console.ReadKey();
         }
         

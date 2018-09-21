@@ -1,0 +1,12 @@
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Debug\StatisticApp.exe
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Debug\StatisticApp.pdb
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.Properties.Resources.resources
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.csproj.GenerateResource.cache
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.csproj.CoreCompileInputs.cache
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.exe
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.pdb
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Debug\EPPlus.dll
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Debug\EPPlus.xml
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.csprojAssemblyReference.cache
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.csproj.CopyComplete
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Debug\StatisticApp.frmVerify.resources

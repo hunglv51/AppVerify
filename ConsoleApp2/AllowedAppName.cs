@@ -10,7 +10,7 @@ namespace ConsoleApp2
     {
         public static readonly string[] BasicList = {
             "Office 365",
-            "Mozilla Firefox",
+            "Firefox",
             "Chrome",
             "Internet Explorer",
             "Adobe Acrobat Reader DC",
@@ -30,7 +30,12 @@ namespace ConsoleApp2
 
         public static readonly string[] AlwaysPassKeyWord =
         {
-            "Microsoft"
+            "Microsoft",
+            "SQL Server",
+            "Entity Framework",
+            "IIS",
+            "NVIDIA", 
+            "Windows"
         };
 
         public static readonly string[] SIList =
@@ -142,7 +147,7 @@ namespace ConsoleApp2
         public static readonly string[] AllAllowedApps =
         {
             "Office 365",
-            "Mozilla Firefox",
+            "Firefox",
             "Chrome",
             "Internet Explorer",
             "Adobe Acrobat Reader DC",

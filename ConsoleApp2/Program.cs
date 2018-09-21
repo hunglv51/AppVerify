@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ConsoleApp2
 {
@@ -80,14 +82,34 @@ namespace ConsoleApp2
             List<string> validApp = new List<string>();
             List<string> inValidApp = new List<string>();
             VerifyApps(validApp, inValidApp, listApp, AllowedAppName.AllAllowedApps);
-            Console.WriteLine("Vallid App:" + validApp.Count);
-            foreach (var name in validApp)
-                Console.WriteLine(name);
-            Console.WriteLine();
-            Console.WriteLine("Invalid App:" + inValidApp.Count);
-            foreach (var name in inValidApp)
-                Console.WriteLine(name);
-            Console.ReadKey();
+            //Console.WriteLine("Vallid App:" + validApp.Count);
+            //foreach (var name in validApp)
+            //    Console.WriteLine(name);
+            //Console.WriteLine();
+            //Console.WriteLine("Invalid App:" + inValidApp.Count);
+            //foreach (var name in inValidApp)
+            //    Console.WriteLine(name);
+            using (var excel = new ExcelPackage())
+            {
+                var workSheet = excel.Workbook.Worksheets.Add(@"KLOONVN\le.viet.hung");
+                var file = new FileInfo("result.xlsx");
+                if (file.Exists)
+                {
+                    file.Delete();
+                }
+                
+                workSheet.Cells["A1:B1"].Merge = true;
+                
+                workSheet.Cells["A1:B1"].Value = @"KLOONVN\le.viet.hung";
+                workSheet.Cells["A2"].Value = "Valid Apps: " + validApp.Count;
+                workSheet.Cells["B2"].Value = "Invalid Apps: " + inValidApp.Count;
+                workSheet.Cells["A3:A" + (validApp.Count + 2)].LoadFromCollection(validApp);
+                workSheet.Cells["B3:B" + (inValidApp.Count + 2)].LoadFromCollection(inValidApp);
+                workSheet.Cells["A3:A" + (validApp.Count + 2)].AutoFitColumns();
+                workSheet.Cells["B3:B" + (inValidApp.Count + 2)].AutoFitColumns();
+                excel.SaveAs(file);
+            }
+                Console.ReadKey();
         }
     }
 }
