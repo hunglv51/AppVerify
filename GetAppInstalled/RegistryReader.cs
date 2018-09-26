@@ -1,9 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace GetAppInstalled
 {
@@ -26,34 +24,7 @@ namespace GetAppInstalled
             }
         }
 
-       //public static void VerifyApps(List<string> validApps, List<string> invalidApps, HashSet<string> listApp, string[] allowedApps)
-       // {
-       //     foreach (var appName in listApp)
-       //     {
-       //         if (IsAllowedApp(appName, allowedApps))
-       //             validApps.Add(appName);
-       //         else
-       //             invalidApps.Add(appName);
-
-       //     }
-       // }
-
-       // static bool IsAllowedApp(string appName, string[] allowedApps)
-       // {
-       //     //foreach (var keyword in AllowedAppName.AlwaysPassKeyWord)
-       //     //{
-       //     //    if (appName.ToLower().Contains(keyword.ToLower()))
-       //     //        return true;
-       //     //}
-
-       //     //foreach (var app in allowedApps)
-       //     //{
-       //     //    if (appName.ToLower().Contains(app.ToLower()))
-       //     //        return true;
-       //     //}
-       //     return false;
-
-       // }
+      
 
        public  static HashSet<string> GetInstalledApps()
         {

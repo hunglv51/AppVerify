@@ -39,13 +39,16 @@
             this.lblLocaton = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblAllowApp = new System.Windows.Forms.Label();
             this.txtAllowApp = new System.Windows.Forms.TextBox();
             this.btnAllowApp = new System.Windows.Forms.Button();
             this.dlgFileSelect = new System.Windows.Forms.OpenFileDialog();
+            this.txtLog = new System.Windows.Forms.RichTextBox();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLocation
@@ -103,9 +106,9 @@
             // 
             // txtLocation
             // 
-            this.txtLocation.Location = new System.Drawing.Point(91, 54);
+            this.txtLocation.Location = new System.Drawing.Point(103, 54);
             this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(355, 20);
+            this.txtLocation.Size = new System.Drawing.Size(343, 20);
             this.txtLocation.TabIndex = 5;
             this.txtLocation.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
@@ -114,16 +117,15 @@
             this.lblLocaton.AutoSize = true;
             this.lblLocaton.Location = new System.Drawing.Point(13, 57);
             this.lblLocaton.Name = "lblLocaton";
-            this.lblLocaton.Size = new System.Drawing.Size(29, 13);
+            this.lblLocaton.Size = new System.Drawing.Size(84, 13);
             this.lblLocaton.TabIndex = 6;
-            this.lblLocaton.Text = "Path";
+            this.lblLocaton.Text = "Report Directory";
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.progressBar,
-            this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 161);
+            this.progressBar});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 527);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(502, 22);
             this.statusStrip1.TabIndex = 7;
@@ -131,16 +133,10 @@
             // 
             // progressBar
             // 
+            this.progressBar.AutoSize = false;
+            this.progressBar.MarqueeAnimationSpeed = 1000;
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(100, 16);
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = false;
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(300, 17);
-            this.lblStatus.Text = "toolStripStatusLabel1";
-            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.progressBar.Size = new System.Drawing.Size(488, 16);
             // 
             // lblAllowApp
             // 
@@ -153,9 +149,9 @@
             // 
             // txtAllowApp
             // 
-            this.txtAllowApp.Location = new System.Drawing.Point(91, 91);
+            this.txtAllowApp.Location = new System.Drawing.Point(103, 91);
             this.txtAllowApp.Name = "txtAllowApp";
-            this.txtAllowApp.Size = new System.Drawing.Size(355, 20);
+            this.txtAllowApp.Size = new System.Drawing.Size(343, 20);
             this.txtAllowApp.TabIndex = 9;
             this.txtAllowApp.TextChanged += new System.EventHandler(this.txtAllowApp_TextChanged);
             // 
@@ -174,11 +170,39 @@
             this.dlgFileSelect.FileName = "openFileDialog1";
             this.dlgFileSelect.FileOk += new System.ComponentModel.CancelEventHandler(this.SetAllowApp);
             // 
+            // txtLog
+            // 
+            this.txtLog.Location = new System.Drawing.Point(16, 157);
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ReadOnly = true;
+            this.txtLog.Size = new System.Drawing.Size(474, 331);
+            this.txtLog.TabIndex = 11;
+            this.txtLog.Text = "";
+            // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus});
+            this.statusStrip2.Location = new System.Drawing.Point(0, 505);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(502, 22);
+            this.statusStrip2.TabIndex = 12;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = false;
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(489, 17);
+            this.lblStatus.Text = "toolStripStatusLabel1";
+            // 
             // frmVerify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 183);
+            this.ClientSize = new System.Drawing.Size(502, 549);
+            this.Controls.Add(this.statusStrip2);
+            this.Controls.Add(this.txtLog);
             this.Controls.Add(this.btnAllowApp);
             this.Controls.Add(this.txtAllowApp);
             this.Controls.Add(this.lblAllowApp);
@@ -196,6 +220,8 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.statusStrip2.ResumeLayout(false);
+            this.statusStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,11 +240,13 @@
         private System.Windows.Forms.Label lblLocaton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripProgressBar progressBar;
-        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.Label lblAllowApp;
         private System.Windows.Forms.TextBox txtAllowApp;
         private System.Windows.Forms.Button btnAllowApp;
         private System.Windows.Forms.OpenFileDialog dlgFileSelect;
+        private System.Windows.Forms.RichTextBox txtLog;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
     }
 }
 

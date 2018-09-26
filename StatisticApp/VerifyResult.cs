@@ -13,8 +13,8 @@ namespace StatisticApp
         public string Username { get; set; }
         public VerifyResult()
         {
-            this.ValidApps = new List<string>();
-            this.InValidApps = new List<string>();
+            ValidApps = new List<string>();
+            InValidApps = new List<string>();
         }
     }
 }

@@ -1,0 +1,10 @@
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\bin\Release\GetAppInstalled.exe.config
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\bin\Release\GetAppInstalled.exe
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\bin\Release\GetAppInstalled.pdb
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\obj\Release\GetAppInstalled.ReadProgramForm.resources
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\obj\Release\GetAppInstalled.Properties.Resources.resources
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\obj\Release\KLOON.ReadProgram.csproj.GenerateResource.cache
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\obj\Release\KLOON.ReadProgram.csproj.CoreCompileInputs.cache
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\obj\Release\GetAppInstalled.exe
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\obj\Release\GetAppInstalled.pdb
+C:\Users\le.viet.hung\source\repos\VerifyApp\GetAppInstalled\obj\Release\KLOON.ReadProgram.csprojAssemblyReference.cache

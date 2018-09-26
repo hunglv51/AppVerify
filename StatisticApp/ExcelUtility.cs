@@ -5,24 +5,33 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace StatisticApp
 {
     public static class ExcelUtility
     {
-        public static void CreateExcel(string dirPath, string allowAppFileName)
+        public static void CreateExcel(string dirPath, string allowAppFileName, Action<int, int> updateStatus)
         {
-            var outputFile = new FileInfo(dirPath + @"\statistic_result.xlsx");
+            var outputFile = new FileInfo(dirPath + @"\statistic_result_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm") + ".xlsx");
             if (outputFile.Exists)
             {
                 outputFile.Delete();
             }
             using (var excel = new ExcelPackage())
             {
-                string[] files = Directory.GetFiles(dirPath, "*.txt", SearchOption.TopDirectoryOnly);
-                foreach(var file in files)
+                string[] files = Directory.GetFiles(dirPath, "*.klo", SearchOption.TopDirectoryOnly);
+                //foreach(var file in files)
+                //{
+                //    CreateSheet(excel, file, allowAppFileName);
+                //}
+                if (files.Length < 1)
+                    throw new Exception("Your directory does not contain input files");
+
+                for(int i = 0;i < files.Length; i++)
                 {
-                    CreateSheet(excel, file, allowAppFileName);
+                    CreateSheet(excel, files[i], allowAppFileName);
+                    updateStatus(i + 1, files.Length);
                 }
 
                 excel.SaveAs(outputFile);
@@ -32,7 +41,7 @@ namespace StatisticApp
         private static void CreateSheet(ExcelPackage excel, string fileName, string allowAppFileName)
         {
             var verifyResult = TextFileUltility.VerifyApps(fileName, allowAppFileName);
-            var workSheet = excel.Workbook.Worksheets.Add(verifyResult.Username + new Random().Next());
+            var workSheet = excel.Workbook.Worksheets.Add(verifyResult.Username);
 
             workSheet.Cells["A1:B1"].Merge = true;
             workSheet.Cells["A1:B1"].Value = verifyResult.Username;

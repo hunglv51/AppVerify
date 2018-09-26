@@ -1,0 +1,11 @@
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Release\StatisticApp.exe
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Release\StatisticApp.pdb
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Release\EPPlus.dll
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\bin\Release\EPPlus.xml
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Release\StatisticApp.frmVerify.resources
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Release\StatisticApp.Properties.Resources.resources
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Release\StatisticApp.csproj.GenerateResource.cache
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Release\StatisticApp.csproj.CoreCompileInputs.cache
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Release\StatisticApp.csproj.CopyComplete
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Release\StatisticApp.exe
+C:\Users\le.viet.hung\source\repos\VerifyApp\StatisticApp\obj\Release\StatisticApp.pdb

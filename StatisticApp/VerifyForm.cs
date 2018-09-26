@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,16 +35,34 @@ namespace StatisticApp
 
         private void btnGenerateExcel_Click(object sender, EventArgs e)
         {
+
             SetUIBeginGenerate();
             string dirPath = this.txtLocation.Text;
             string allowAppFileName = this.txtAllowApp.Text;
-            ExcelUtility.CreateExcel(dirPath, allowAppFileName);
-            SetUIEndGenerate();
+            bool isValidInput = (new FileInfo(allowAppFileName).Exists) && (new DirectoryInfo(dirPath).Exists);
+            if (isValidInput)
+            {
+                try
+                {
+                    ExcelUtility.CreateExcel(dirPath, allowAppFileName, UpdateStatus);
+                }
+                catch(Exception exception)
+                {
+                    NotifyError(exception.Message, "Invalid Input");
+                    return;
+                }
+                SetUIEndGenerate();
+            }
+            else
+            {
+                NotifyError("You have choose invalid input, please re-select", "Invalid input");
+            }
+            
         }
 
         private void SetBeginUI()
         {
-            this.lblStatus.Text = "Please enter directory path";
+            this.lblStatus.Text = "Please select input directory path and list allowed application";
             this.btnGenerateExcel.Enabled = false;
         }
 
@@ -69,7 +88,7 @@ namespace StatisticApp
 
         private void SetUIBeginGenerate()
         {
-            this.progressBar.Value = 50;
+            this.progressBar.Value = 0;
         }
 
         private void SetUIEndGenerate()
@@ -103,6 +122,23 @@ namespace StatisticApp
         {
             FileDialog fileDlg = sender as FileDialog;
             this.txtAllowApp.Text = fileDlg.FileName;
+        }
+
+        public void UpdateStatus(int currSheet, int numSheets)
+        {
+            this.progressBar.Value = (100 * currSheet) / numSheets;
+            this.txtLog.AppendText($"Starting create sheet {currSheet}/{numSheets}\n");
+            this.txtLog.AppendText($"Done create sheet {currSheet}/{numSheets}\n");
+            this.txtLog.AppendText("--------------------------------------------------------------------------------\n");
+            this.txtLog.ScrollToCaret();
+        }
+
+        private void NotifyError(string msg, string caption)
+        {
+            
+            
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(msg, caption, buttons, MessageBoxIcon.Error);
         }
     }
 }

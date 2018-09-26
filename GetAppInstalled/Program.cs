@@ -16,7 +16,7 @@ namespace GetAppInstalled
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GetListAppForm());
+            Application.Run(new ReadProgramForm());
         }
     }
 }

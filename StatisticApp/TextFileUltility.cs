@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace StatisticApp
 {
@@ -19,17 +14,23 @@ namespace StatisticApp
             List<string> allowedApp = LoadAllowApp(allowAppFileName);
             using(var reader = file.OpenText())
             {
-                rs.Username = EncryptUltility.DecodeData(reader.ReadLine());
-                while (!reader.EndOfStream)
+                string[] fileContent = reader.ReadToEnd().Split(';');
+                string encrytedKey = fileContent[0];
+                string encrytedData = fileContent[1];
+                RSADecryptUltility.SetMD5Key(encrytedKey);
+                string decryptedData = RSADecryptUltility.MD5Decrypt(encrytedData);
+                string[] appsName = decryptedData.Split(';');
+                rs.Username = appsName[0];
+                for(int i = 1;i < appsName.Length;i++)
                 {
-                    string decodedString = EncryptUltility.DecodeData(reader.ReadLine());
-                    if (AllowedAppName.IsAllowedApp(decodedString, allowedApp))
+
+                    if (AllowedAppName.IsAllowedApp(appsName[i], allowedApp))
                     {
-                        rs.ValidApps.Add(decodedString);
+                        rs.ValidApps.Add(appsName[i]);
                     }
                     else
                     {
-                        rs.InValidApps.Add(decodedString);
+                        rs.InValidApps.Add(appsName[i]);
                     }
                 }
             }
@@ -44,10 +45,20 @@ namespace StatisticApp
             {
                 while (!reader.EndOfStream)
                 {
-                    rs.Add(reader.ReadLine());
+                    string line = reader.ReadLine();
+                    if (IsIgnoredString(line))
+                        continue;
+                    rs.Add(line);
                 }
             }
             return rs;
+        }
+
+        private static bool IsIgnoredString(string line)
+        {
+            if (String.IsNullOrEmpty(line) || String.IsNullOrWhiteSpace(line) || line.StartsWith("---"))
+                return true;
+            return false;
         }
 
     }
